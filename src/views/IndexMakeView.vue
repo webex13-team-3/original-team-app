@@ -1,0 +1,3 @@
+<template>
+  <h1>一覧ページ</h1>
+</template>
