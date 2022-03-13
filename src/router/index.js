@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router"
 import HomeView from "../views/HomeView.vue"
-import IndexMakeView from "../views/IndexMakeView"
-import DetailMakeView from "../views/DetailMakeView"
-import PostMakeView from "../views/PostMakeView"
+import IndexMakeView from "../views/IndexMakeView.vue"
+import DetailMakeView from "../views/DetailMakeView.vue"
+import PostMakeView from "../views/PostMakeView.vue"
 
 const routes = [
   {
@@ -11,6 +11,7 @@ const routes = [
     component: HomeView,
   },
   {
+    //一覧
     path: "/makes",
     name: "index-makes",
     component: IndexMakeView,
@@ -21,6 +22,7 @@ const routes = [
     component: DetailMakeView,
   },
   {
+    //投稿
     path: "/post",
     name: "post-make",
     component: PostMakeView,
