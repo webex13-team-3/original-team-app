@@ -2,33 +2,17 @@
   <h1>一覧ページ</h1>
   <div class="container">
     <div v-for="make in makes" :key="make.id" class="container-box">
-      <p>
+      <p v-if="make.shitajiImage">
         <img v-bind:src="make.shitajiImage" alt="下地のイメージ" width="200" />
       </p>
       <div class="tag-box">
-        <p
-          v-if="
-            make.shitajiName ||
-            make.concealerName ||
-            make.shadingName ||
-            make.highlightName
-          "
-          class="tag-name"
-        >
-          ベースメイク
-        </p>
-        <p v-if="make.powderName || make.cheekName" class="tag-name">
-          パウダー
-        </p>
-        <ListTag
-          :name="hasEyeMakes(make)"
-          tagName="アイメイク"
-          class="tag-name"
-        />
-
-        <p v-if="make.lipName" class="tag-name">リップ</p>
-        <p v-if="make.otherName" class="tag-name">その他</p>
+        <ListTag :name="hasBaseMakes(make)" tagName=" ベースメイク" />
+        <ListTag :name="haspowderMakes(make)" tagName="パウダー" />
+        <ListTag :name="hasEyeMakes(make)" tagName="アイメイク" />
+        <ListTag :name="haslipMakes(make)" tagName="リップ" />
+        <ListTag :name="hasotherMakes(make)" tagName="その他" />
       </div>
+      <a :href="'/makes/' + make.id">もっとみる</a>
     </div>
   </div>
 </template>
@@ -36,6 +20,7 @@
 <script>
 import { collection, getDocs } from "firebase/firestore"
 import { db } from "@/firebase"
+import ListTag from "../components/ListTag.vue"
 
 export default {
   data() {
@@ -43,13 +28,57 @@ export default {
       makes: [],
     }
   },
-  computed() {
+  computed: {
     hasEyeMakes() {
       return function (make) {
-      if (make.eyeShadowName || make.mascaraName || make.eyeblowName) return true
-      return false
+        if (make.eyeShadowName || make.mascaraName || make.eyeblowName) {
+          return true
+        } else {
+          return false
+        }
       }
-    }
+    },
+    hasBaseMakes() {
+      return function (make) {
+        if (
+          make.shitajiName ||
+          make.concealerName ||
+          make.shadingName ||
+          make.highlightName
+        ) {
+          return true
+        } else {
+          return false
+        }
+      }
+    },
+    haspowderMakes() {
+      return function (make) {
+        if (make.powderName || make.cheekName) {
+          return true
+        } else {
+          return false
+        }
+      }
+    },
+    haslipMakes() {
+      return function (make) {
+        if (make.lipName) {
+          return true
+        } else {
+          return false
+        }
+      }
+    },
+    hasotherMakes() {
+      return function (make) {
+        if (make.otherName) {
+          return true
+        } else {
+          return false
+        }
+      }
+    },
   },
   methods: {},
   created() {
@@ -61,6 +90,9 @@ export default {
         })
       })
     })
+  },
+  components: {
+    ListTag,
   },
 }
 </script>
