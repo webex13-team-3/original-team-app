@@ -1,23 +1,19 @@
 <template>
-  <h1>ああああああ</h1>
-  <p>{{ twit.shitajiName }}</p>
+  <p>{{ $route.params }}</p>
 </template>
 
 <script>
-import { firestore } from "firebase"
-import { db } from "../main"
+// import { firestore, getDoc, collection } from "firebase"
+// import { db } from "../firebase"
 
 export default {
-  props: ["id"],
   data() {
     return {
       twit: {},
     }
   },
-  firestore() {
-    return {
-      twit: db.collection("makes").doc(this.$makes.id),
-    }
+  created() {
+    console.log(this.$route.params.id)
   },
 }
 </script>

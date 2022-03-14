@@ -12,7 +12,7 @@
         <ListTag :name="haslipMakes(make)" tagName="リップ" />
         <ListTag :name="hasotherMakes(make)" tagName="その他" />
       </div>
-      <a :href="'/makes/' + make.id">もっとみる</a>
+      <router-link :to="'/makes/' + make.id">もっとみる</router-link>
     </div>
   </div>
 </template>
