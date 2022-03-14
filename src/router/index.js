@@ -17,7 +17,7 @@ const routes = [
     component: IndexMakeView,
   },
   {
-    path: "/makes/detail", // TODO `detail` の部分を firebase の id に 動的に置き換える
+    path: "/makes/:id", // TODO `detail` の部分を firebase の id に 動的に置き換える
     name: "detail-make",
     component: DetailMakeView,
   },
