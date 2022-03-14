@@ -2,46 +2,44 @@
   <div class="Post">
     <h1>投稿ページ</h1>
   </div>
-  <button v-on:click="postTweet" class="form__submit-button">投稿</button>
+  <section>
+    <input type="text" v-model="inputValue" />
+    <button v-on:click="postTweet" class="form__submit-button">投稿</button>
+  </section>
   <div>
     <p v-for="tweet in tweets" :key="tweet.id">
-      {{ tweet.text }}
+      {{ inputValue }}
     </p>
   </div>
 </template>
 
 <script>
-import { collection, addDoc, getDocs } from "firebase/firestore"
+import { collection, addDoc } from "firebase/firestore"
 import { db } from "../firebase"
 
 export default {
   data() {
     return {
       tweets: [
-        //データが入る予定
-        // {
-        //   id: "",
-        //   text: "",
-        // },
+        {
+          id: "",
+          inputValue: "",
+        },
       ],
     }
   },
   methods: {
     postTweet() {
-      addDoc(collection(db, "tweets"), {
-        text: "こんにちは、ツイートの本文です",
-      })
-    },
-  },
-  created() {
-    getDocs(collection(db, "tweets")).then((snapshot) => {
-      snapshot.forEach((doc) => {
+      const tweet = {
+        inputValue: "",
+      }
+      addDoc(collection(db, "tweets"), tweet).then((ref) => {
         this.tweets.push({
-          id: doc.id,
-          ...doc.data(),
+          id: ref.id,
+          ...tweet,
         })
       })
-    })
+    },
   },
 }
 </script>
