@@ -1,19 +1,26 @@
 <template>
-  <p>{{ $route.params }}</p>
+  <p>{{ $route.params.shitajiName }}</p>
 </template>
 
 <script>
-// import { firestore, getDoc, collection } from "firebase"
-// import { db } from "../firebase"
-
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "@/firebase"
 export default {
   data() {
     return {
-      twit: {},
+      makes: [{ shitajiName: "あああ" }],
     }
   },
+  methods: {},
   created() {
-    console.log(this.$route.params.id)
+    getDocs(collection(db, "this.$route.params.id")).then((snapshot) => {
+      snapshot.forEach((doc) => {
+        this.makes.push({
+          id: doc.id,
+          ...doc.data(),
+        })
+      })
+    })
   },
 }
 </script>
