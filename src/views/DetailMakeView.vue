@@ -1,14 +1,29 @@
 <template>
   <h1>詳細ページ</h1>
-  <DetailShow />
+  {{ this.make.shitajiName }}
+  <p v-if="make.shitajiImage">
+    <img v-bind:src="make.shitajiImage" alt="下地のイメージ" width="200" />
+  </p>
+  {{ this.make.shitajiComment }}
+  {{ this.make.shitajiName }}
+  {{ this.make.shitajiName }}
+  {{ this.make.shitajiName }}
+  {{ this.make.shitajiName }}
 </template>
 
 <script>
-import DetailShow from "../components/DetailShow.vue"
-
+import { doc, getDoc } from "firebase/firestore"
+import { db } from "@/firebase"
 export default {
-  components: {
-    DetailShow,
+  data() {
+    return {
+      make: null,
+    }
+  },
+  created() {
+    getDoc(doc(db, "makes", this.$route.params.id)).then((doc) => {
+      this.make = doc.data()
+    })
   },
 }
 </script>
