@@ -28,14 +28,7 @@ import ListTag from "../components/ListTag.vue"
 export default {
   data() {
     return {
-      makes: [
-        {
-          eyeShadowName: "あああ",
-          mascaraName: "aaa",
-          shitajiName: "aa",
-          shitajiImage: "https://via.placeholder.com/500x500",
-        },
-      ],
+      makes: [{}],
       serchWord: "",
     }
   },
@@ -106,16 +99,6 @@ export default {
           id: doc.id,
           ...doc.data(),
         })
-        for (let i = 0; i < this.makes.length; i++) {
-          if (
-            this.makes[i].shitajiName ||
-            this.makes[i].concealerName ||
-            this.makes[i].shadingName ||
-            this.makes[i].highlightName
-          ) {
-            this.makes[i].tagName.push("ベースメイク")
-          }
-        }
       })
     })
   },

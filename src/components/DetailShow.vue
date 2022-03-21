@@ -39,18 +39,22 @@ export default defineComponent({
       })
       .then((data) => {
         this.make = data
-        this.images.push(data.shitajiImage)
-        this.images.push(data.shadingImage)
-        this.images.push(data.powderImage)
-        this.images.push(data.highlightImage)
-        this.images.push(data.concealerImage)
-        this.images.push(data.cheekImage)
-        this.images.push(data.mascaraImage)
-        this.images.push(data.eyelineImage)
-        this.images.push(data.eyeShadowImage)
-        this.images.push(data.eyeblowImage)
-        this.images.push(data.lipImage)
-        this.images.push(data.otherImage)
+        if (data.shitajiImage) {
+          this.images.push(data.shitajiImage)
+          this.images.push(data.shitajiImage)
+        }
+
+        // this.images.push(data.shadingImage)
+        // this.images.push(data.powderImage)
+        // this.images.push(data.highlightImage)
+        // this.images.push(data.concealerImage)
+        // this.images.push(data.cheekImage)
+        // this.images.push(data.mascaraImage)
+        // this.images.push(data.eyelineImage)
+        // this.images.push(data.eyeShadowImage)
+        // this.images.push(data.eyeblowImage)
+        // this.images.push(data.lipImage)
+        // this.images.push(data.otherImage)
       })
   },
 })
