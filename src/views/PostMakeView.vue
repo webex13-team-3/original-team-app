@@ -1,6 +1,6 @@
 <template>
   <div class="Post">
-    <h1>投稿ページ</h1>
+    <h1>新規投稿</h1>
   </div>
 
   <b>ベース</b>
