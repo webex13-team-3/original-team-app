@@ -9,8 +9,24 @@
       <h3>下地</h3>
       <input type="text" v-model="shitajiName" placeholder="商品名を入力" />
       <input type="text" v-model="shitajiComment" placeholder="コメント" />
-      <input type="text" v-model="shitajiImage" placeholder="画像" />
+
+      <!-- 画像だけが選択できるように accept を設定する -->
+      <!-- アップロード中は disabled で選択できないようにする -->
+      <input
+        type="file"
+        accept="image/*"
+        :disabled="disabled"
+        @change="onFileChange"
+      />
+      <span>{{ message }}</span>
     </div>
+      <button @click="getImages">更新</button>
+      <div>
+        <div v-for="image in images" :key="image.id">
+          <img :src="image.url" :alt="image.name" />
+          <div>{{ image.name }}</div>
+        </div>
+      </div>
     <div>
       <p v-for="make in makes" :key="make.id">
         {{ make.shitajiName }}
@@ -202,7 +218,14 @@
 </template>
 
 <script>
-import { collection, addDoc } from "firebase/firestore"
+import {
+  collection,
+  addDoc,
+  query,
+  orderBy,
+  limit,
+  getDocs,
+} from "firebase/firestore"
 import { db } from "../firebase"
 
 export default {
@@ -265,6 +288,45 @@ export default {
         })
       })
     },
+  },
+  getImages() {
+    /**
+     * firestore の images コレクションを示す クエリ を作成する。
+     * クエリとは、データベースに対して「これでデータを取得してください!」と示すもの。
+     * Googleで検索する時のキーワードの羅列のイメージ。
+     * 参考：https://firebase.google.com/docs/firestore/query-data/get-data?hl=ja#get_multiple_documents_from_a_collection
+     * 参考：https://firebase.google.com/docs/firestore/query-data/queries?hl=ja#execute_a_query
+     */
+
+    const imagesQuery = query(
+      collection(db, "images"),
+      orderBy("createdAt"),
+      limit(5)
+    )
+    getDocs(imagesQuery).then((collection) => {
+      this.images = collection.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data(),
+        }
+      })
+      // 上は下のコードと同じ意味
+      // map については Array.prototype.map で調べてみてください
+      // ... はスプレッド構文と言いオブジェクトのプロパティを展開してくれます。
+      // const images = [];
+      // for (let i = 0;i < images.length;i++) {
+      //   images.push({
+      //     id: doc.id,
+      //     name: doc.data().name,
+      //     url: doc.data().url,
+      //     createdAt:  doc.data().createdAt
+      //   });
+      // }
+      // this.images = images;
+    })
+  },
+  mounted() {
+    this.getImages()
   },
 }
 </script>
