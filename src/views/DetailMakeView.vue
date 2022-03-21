@@ -1,43 +1,92 @@
 <template>
   <h1>詳細ページ</h1>
-  <DetailShow></DetailShow>
-  {{ this.make.shitajiName }}
-  {{ this.make.shitajiComment }}
-  {{ this.make.shadingName }}
-  {{ this.make.shadingComment }}
-  {{ this.make.powderName }}
-  {{ this.make.powderComment }}
-  {{ this.make.otherName }}
-  {{ this.make.otherComment }}
-  {{ this.make.mascaraName }}
-  {{ this.make.mascaraComment }}
-  {{ this.make.lipName }}
-  {{ this.make.lipComment }}
-  {{ this.make.highlightName }}
-  {{ this.make.highlightComment }}
-  {{ this.make.eyelineName }}
-  {{ this.make.eyelineComment }}
-  {{ this.make.fandationName }}
-  {{ this.make.fandationComment }}
-  {{ this.make.eyeblowName }}
-  {{ this.make.eyeblowComment }}
-  {{ this.make.eyeShadowName }}
-  {{ this.make.eyeShadowComment }}
-  {{ this.make.concealerName }}
-  {{ this.make.concealerComment }}
-  {{ this.make.cheekName }}
-  {{ this.make.cheekComment }}
+  <DetailShow class="show-image"></DetailShow>
+  <div class="a">
+    <div class="tag-box">
+      <div class="tag-tab-title">
+        <ListTag
+          v-on:click="makeBase"
+          :name="hasBaseMakes(make)"
+          tagName=" ベースメイク"
+        />
+        <ListTag
+          v-on:click="makePowder"
+          :name="haspowderMakes(make)"
+          tagName="パウダー"
+        />
+        <ListTag
+          v-on:click="makeEye"
+          :name="hasEyeMakes(make)"
+          tagName="アイメイク"
+        />
+        <ListTag
+          v-on:click="makeLip"
+          :name="haslipMakes(make)"
+          tagName="リップ"
+        />
+        <ListTag
+          v-on:click="makeOther"
+          :name="hasotherMakes(make)"
+          tagName="その他"
+        />
+      </div>
+      <div class="tab-tag-main">
+        <div v-if="base">
+          <p>{{ this.make.shitajiName }}</p>
+          <p>{{ this.make.shitajiComment }}</p>
+          <p>{{ this.make.concealerName }}</p>
+          <p>{{ this.make.concealerComment }}</p>
+          <p>{{ this.make.shadingName }}</p>
+          <p>{{ this.make.shadingComment }}</p>
+          <p>{{ this.make.highlightName }}</p>
+          <p>{{ this.make.highlightComment }}</p>
+        </div>
+        <div v-if="powder">
+          <p>{{ this.make.fandationName }}</p>
+          <p>{{ this.make.fandationComment }}</p>
+          <p>{{ this.make.powderName }}</p>
+          <p>{{ this.make.powderComment }}</p>
+          <p>{{ this.make.cheekName }}</p>
+          <p>{{ this.make.cheekComment }}</p>
+        </div>
+        <div v-if="eye">
+          <p>{{ this.make.eyelineName }}</p>
+          <p>{{ this.make.eyelineComment }}</p>
+          <p>{{ this.make.eyeShadowName }}</p>
+          <p>{{ this.make.eyeShadowComment }}</p>
+          <p>{{ this.make.eyeblowName }}</p>
+          <p>{{ this.make.eyeblowComment }}</p>
+          <p>{{ this.make.mascaraName }}</p>
+          <p>{{ this.make.mascaraComment }}</p>
+        </div>
+        <div v-if="lip">
+          <p>{{ this.make.lipName }}</p>
+          <p>{{ this.make.lipComment }}</p>
+        </div>
+        <div v-if="other">
+          <p>{{ this.make.otherName }}</p>
+          <p>{{ this.make.otherComment }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "@/firebase"
 import DetailShow from "@/components/DetailShow.vue"
+import ListTag from "../components/ListTag.vue"
 
 export default {
   data() {
     return {
       make: null,
+      base: false,
+      powder: false,
+      eye: false,
+      lip: false,
+      other: false,
     }
   },
   created() {
@@ -47,6 +96,138 @@ export default {
   },
   components: {
     DetailShow,
+    ListTag,
+  },
+  computed: {
+    hasEyeMakes() {
+      return function (make) {
+        if (
+          make.eyeShadowName ||
+          make.mascaraName ||
+          make.eyeblowName ||
+          make.eyelineName
+        ) {
+          return true
+        } else {
+          return false
+        }
+      }
+    },
+    hasBaseMakes() {
+      return function (make) {
+        if (
+          make.shitajiName ||
+          make.concealerName ||
+          make.shadingName ||
+          make.highlightName
+        ) {
+          return true
+        } else {
+          return false
+        }
+      }
+    },
+    haspowderMakes() {
+      return function (make) {
+        if (make.powderName || make.cheekName || make.fandationName) {
+          return true
+        } else {
+          return false
+        }
+      }
+    },
+    haslipMakes() {
+      return function (make) {
+        if (make.lipName) {
+          return true
+        } else {
+          return false
+        }
+      }
+    },
+    hasotherMakes() {
+      return function (make) {
+        if (make.otherName) {
+          return true
+        } else {
+          return false
+        }
+      }
+    },
+  },
+  methods: {
+    makeBase() {
+      this.base = true
+      this.powder = false
+      this.eye = false
+      this.lip = false
+      this.other = false
+    },
+    makePowder() {
+      this.base = false
+      this.powder = true
+      this.eye = false
+      this.lip = false
+      this.other = false
+    },
+    makeEye() {
+      this.base = false
+      this.powder = false
+      this.eye = true
+      this.lip = false
+      this.other = false
+    },
+    makeLip() {
+      this.base = false
+      this.powder = false
+      this.eye = false
+      this.lip = true
+      this.other = false
+    },
+    makeOther() {
+      this.base = false
+      this.powder = false
+      this.eye = false
+      this.lip = false
+      this.other = true
+    },
   },
 }
 </script>
+
+<style scoped>
+.show-image {
+  position: absolute;
+  right: 8%;
+  width: 30vw;
+  height: 30vh;
+}
+.tag-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.tag-tab-title {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-left: 10%;
+  width: 600px;
+}
+.tag-name {
+  border: 3px solid;
+  border-color: #eeb4a8;
+  background-color: rgba(255, 255, 255, 0.589);
+  width: 7rem;
+  margin: 3px;
+  padding: 4px;
+  border-radius: 30px;
+}
+.a {
+  background-color: #f6efe7;
+  height: 60vh;
+  width: 55rem;
+  margin-left: 5%;
+  border-radius: 30px;
+}
+</style>

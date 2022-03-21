@@ -1,5 +1,7 @@
 <template>
   <h1>一覧ページ</h1>
+  <input v-model="serchWord" placeholder="キーワード検索" />
+  <button v-on:click="postSerch(serchWord)">検索</button>
   <div class="container">
     <div v-for="make in makes" :key="make.id" class="container-box">
       <p v-if="make.shitajiImage">
@@ -12,6 +14,7 @@
         <ListTag :name="haslipMakes(make)" tagName="リップ" />
         <ListTag :name="hasotherMakes(make)" tagName="その他" />
       </div>
+
       <router-link :to="'/makes/' + make.id">もっとみる</router-link>
     </div>
   </div>
@@ -25,13 +28,19 @@ import ListTag from "../components/ListTag.vue"
 export default {
   data() {
     return {
-      makes: [],
+      makes: [{}],
+      serchWord: "",
     }
   },
   computed: {
     hasEyeMakes() {
       return function (make) {
-        if (make.eyeShadowName || make.mascaraName || make.eyeblowName) {
+        if (
+          make.eyeShadowName ||
+          make.mascaraName ||
+          make.eyeblowName ||
+          make.eyelineName
+        ) {
           return true
         } else {
           return false
@@ -54,7 +63,7 @@ export default {
     },
     haspowderMakes() {
       return function (make) {
-        if (make.powderName || make.cheekName) {
+        if (make.powderName || make.cheekName || make.fandationName) {
           return true
         } else {
           return false
@@ -80,7 +89,9 @@ export default {
       }
     },
   },
-  methods: {},
+  // methods: {
+  //   postSerch(i) {},
+  // },
   created() {
     getDocs(collection(db, "makes")).then((snapshot) => {
       snapshot.forEach((doc) => {
