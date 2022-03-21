@@ -20,13 +20,13 @@
       />
       <span>{{ message }}</span>
     </div>
-      <button @click="getImages">更新</button>
-      <div>
-        <div v-for="image in images" :key="image.id">
-          <img :src="image.url" :alt="image.name" />
-          <div>{{ image.name }}</div>
-        </div>
+    <button @click="getImages">更新</button>
+    <div>
+      <div v-for="image in images" :key="image.id">
+        <img :src="image.url" :alt="image.name" />
+        <div>{{ image.name }}</div>
       </div>
+    </div>
     <div>
       <p v-for="make in makes" :key="make.id">
         {{ make.shitajiName }}
