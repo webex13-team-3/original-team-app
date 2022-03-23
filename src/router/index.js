@@ -4,6 +4,7 @@ import IndexMakeView from "../views/IndexMakeView.vue"
 import DetailMakeView from "../views/DetailMakeView.vue"
 import PostMakeView from "../views/PostMakeView.vue"
 
+
 const routes = [
   {
     path: "/",
