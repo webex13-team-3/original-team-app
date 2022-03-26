@@ -1,8 +1,8 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/post">NewPost</router-link>
+    <router-link to="/" class="header">Home</router-link> |
+    <router-link to="/about" class="header">About</router-link> |
+    <router-link to="/post" class="header">NewPost</router-link>
   </nav>
 
   <router-view />
@@ -17,9 +17,14 @@
   text-align: center;
   color: #2c3e50;
 }
-
+.header{
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
 nav {
   padding: 30px;
+  background-color: #F5C8C8;
+  text-align: right;
 }
 
 nav a {
