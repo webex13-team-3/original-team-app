@@ -47,7 +47,7 @@ export default {
   color: #7e7878;
 }
 .link:hover {
-  color: #110e0e;
+  color: #130f0f;
   background-color: rgba(255, 255, 255, 0.623);
 }
 </style>
