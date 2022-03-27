@@ -1,8 +1,12 @@
 <template>
   <nav>
-    <router-link to="/" class="header">Home</router-link> |
-    <router-link to="/about" class="header">About</router-link> |
-    <router-link to="/post" class="header">NewPost</router-link>
+    <div>
+      <router-link to="/" class="header">Home</router-link>
+    </div>
+    <div class="nav-right">
+      <router-link to="/makes" class="header">About</router-link> |
+      <router-link to="/post" class="header">NewPost</router-link>
+    </div>
   </nav>
   <router-view />
 </template>
@@ -26,12 +30,17 @@
   padding-right: 3rem;
 }
 nav {
-  padding: 30px;
-  background-color: #f5c8c8;
-  text-align: right;
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+  background-color: rgba(247, 247, 247, 0.479);
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
 }
 nav a {
   font-weight: bold;
+  font-size: 20px;
   color: #110300;
 }
 
@@ -42,9 +51,12 @@ nav a.router-link-exact-active {
   width: 20%;
 }
 .nav-right {
-  width: 20%;
+  width: 40%;
 }
 .index {
   margin-right: 30px;
+}
+.home {
+  width: 20px;
 }
 </style>
