@@ -316,7 +316,7 @@
       v-model="lip2Comment" placeholder="コメント" 
       how-count :maxlength="200" class="Comment"/>
      <img
-        v-bind:src="fandationImage"
+        v-bind:src="lip2Image"
         alt="リップ2のイメージ"
         width="100"
         height="100"
@@ -475,8 +475,8 @@ export default {
           if (e.target.name === "concealer") {
             this.concealerImage = url
           }
-          if (e.target.name === "facepowder") {
-            this.facepowderImage = url
+          if (e.target.name === "powder") {
+            this.powderImage = url
           }
           if (e.target.name === "cheek") {
             this.cheekImage = url
