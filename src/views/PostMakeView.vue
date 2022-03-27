@@ -7,8 +7,8 @@
   <section class="base">
     <div class="shitaji">
     <div class="title">下地</div>
-      <a-input type="text" v-model="shitajiName" placeholder="商品名を入力" how-count :maxlength="20" class ="Name"/>
-      <a-input type="text" v-model="shitajiComment" placeholder="コメント" how-count :maxlength="200" class="Comment"/>
+      <a-input type="text" v-model="shitajiName" placeholder="商品名を入力" how-count :maxlength="100" class ="Name"/>
+      <a-input type="text" v-model="shitajiComment" placeholder="コメント" how-count :maxlength="300" class="Comment"/>
 
       <!-- 画像だけが選択できるように accept を設定する -->
       <!-- アップロード中は disabled で選択できないようにする -->
