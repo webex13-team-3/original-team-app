@@ -36,7 +36,7 @@ export default {
     hasEyeMakes() {
       return function (make) {
         if (
-          make.eyeShadowName ||
+          make.eyeshadowName ||
           make.mascaraName ||
           make.eyeblowName ||
           make.eyelineName
@@ -51,9 +51,9 @@ export default {
       return function (make) {
         if (
           make.shitajiName ||
+          make.fandationName ||
           make.concealerName ||
-          make.shadingName ||
-          make.highlightName
+          make.powderName
         ) {
           return true
         } else {
@@ -63,7 +63,8 @@ export default {
     },
     haspowderMakes() {
       return function (make) {
-        if (make.powderName || make.cheekName || make.fandationName) {
+        if (
+          make.highlightName || make.cheekName ||make.shadingName ) {
           return true
         } else {
           return false
@@ -72,7 +73,7 @@ export default {
     },
     haslipMakes() {
       return function (make) {
-        if (make.lipName) {
+        if (make.lip1Name || make.lip2Name) {
           return true
         } else {
           return false

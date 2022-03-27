@@ -114,7 +114,7 @@
     <div class="cheek">
       <div class="title">チーク</div>
       <a-input type="text" 
-      v-model="cheeknName" placeholder="商品名を入力" 
+      v-model="cheekName" placeholder="商品名を入力" 
       how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
       v-model="cheekComment" placeholder="コメント" 
@@ -342,49 +342,49 @@ import { db, storage } from "../firebase"
 export default {
   data() {
     return {
-      // ベース
-      shitajiName: "ベース ネーム",
-      shitajiComment: "ベース コメント",
-      shitajiImage: "",
-      fandationName: "ベース ネーム",
-      fandationComment: "ベース コメント",
-      fandationImage: "",
-      concealerName: "ベース ネーム",
-      concealerComment: "ベース コメント",
-      concealerImage: "",
-      powderName: "ベース ネーム",
-      powderComment: "ベース コメント",
-      powderImage: "",
-      // フェイス
-      cheekName: "フェイス ネーム",
-      cheekComment: "フェイス コメント",
-      cheekImage: "",
-      highlightName: "フェイス ネーム",
-      highlightComment: "フェイス コメント",
-      highlightImage: "",
-      shadingName: "フェイス ネーム",
-      shadingComment: "フェイス コメント",
-      shadingImage: "",
-      // アイ
-      eyeshadowName: "アイ ネーム",
-      eyeshadowComment: "アイ コメント",
-      eyeshadowImage: "",
-      mascaraName: "アイ ネーム",
-      mascaraComment: "アイ コメント",
-      mascaraImage: "",
-      eyelineName: "アイ ネーム",
-      eyelineComment: "アイ コメント",
-      eyelineImage: "",
-      eyeblowName: "アイ ネーム",
-      eyeblowComment: "アイ コメント",
-      eyeblowImage: "",
+       // ベース
+       shitajiName: "下地の名前",
+      shitajiComment: "下地コメント",
+       shitajiImage: "下地イメージ",
+       fandationName: "ファンデーションの名前",
+       fandationComment: "ファンデーションコメント",
+       fandationImage: "ファンデーションイメージ",
+       concealerName: "コンシーラーの名前",
+       concealerComment: "コンシーラーコメント",
+       concealerImage: "コンシーラーイメージ",
+       powderName: "パウダーの名前",
+       powderComment: "パウダーコメント",
+       powderImage: "パウダーイメージ",
+       // フェイス
+       cheekName: "チークの名前",
+       cheekComment: "チークコメント",
+       cheekImage: "チークイメージ",
+       highlightName: "ハイライトの名前",
+       highlightComment: "ハイライトコメント",
+       highlightImage: "ハイライトイメージ",
+       shadingName: "シェーディングの名前",
+       shadingComment: "シェーディングコメント",
+       shadingImage: "シェーディングイメージ",
+       // アイ
+       eyeshadowName: "アイシャドウの名前",
+       eyeshadowComment: "アイシャドウコメント",
+       eyeshadowImage: "アイシャドウイメージ",
+       mascaraName: "マスカラの名前",
+       mascaraComment: "マスカラコメント",
+       mascaraImage: "マスカライメージ",
+       eyelineName: "アイラインの名前",
+       eyelineComment: "アイラインコメント",
+       eyelineImage: "アイラインイメージ",
+       eyeblowName: "アイブロウの名前",
+       eyeblowComment: "アイブロウコメント",
+       eyeblowImage: "アイブロウイメージ",
       // リップ
-      lip1Name: "リップ ネーム",
-      lip1Comment: "リップ コメント",
-      lip1Image: "",
-      lip2Name: "リップ ネーム",
-      lip2Comment: "リップ コメント",
-      lip2Image: "",
+       lip1Name: "リップ①の名前",
+       lip1Comment: "リップ①コメント",
+       lip1Image: "リップ①イメージ",
+       lip2Name: "リップ②の名前",
+       lip2Comment: "リップ②コメント",
+       lip2Image: "リップ①イメージ",
     }
   },
   
@@ -436,6 +436,7 @@ export default {
         lip2Name: this.lip2Name,
         lip2Comment: this.lip2Comment,
         lip2Image: this.lip2Image,
+        createdAt : new Date()
       }
       addDoc(collection(db, "makes"), make).then((ref) => {
         this.makes.push({
@@ -545,6 +546,7 @@ section{
   margin-right:8px;
 }
 .form__submit-button{
+  margin-top: 5px;
   font-size:20px
 }
 </style>
