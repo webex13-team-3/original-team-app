@@ -41,10 +41,10 @@
       <div class="title">ファンデーション</div>
       <a-input type="text" 
       v-model="fandationName" placeholder="商品名を入力" 
-      how-count :maxlength="20" class ="Name"/>
+      how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
       v-model="fandationComment" placeholder="コメント" 
-      how-count :maxlength="200" class="Comment"/>
+      how-count :maxlength="300" class="Comment"/>
       <img
         v-bind:src="fandationImage"
         alt="ファンデーションのイメージ"
@@ -64,10 +64,10 @@
       <div class="title">コンシーラー</div>
       <a-input type="text" 
       v-model="concealerName" placeholder="商品名を入力" 
-      how-count :maxlength="20" class ="Name"/>
+      how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
       v-model="concealerComment" placeholder="コメント" 
-      how-count :maxlength="200" class="Comment"/>
+      how-count :maxlength="300" class="Comment"/>
       <img
         v-bind:src="concealerImage"
         alt="コンシーラーのイメージ"
@@ -88,10 +88,10 @@
       <div class="title">フェイスパウダー</div>
       <a-input type="text" 
       v-model="powderName" placeholder="商品名を入力" 
-      how-count :maxlength="20" class ="Name"/>
+      how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
       v-model="powderComment" placeholder="コメント" 
-      how-count :maxlength="200" class="Comment"/>
+      how-count :maxlength="300" class="Comment"/>
      <img
         v-bind:src="powderImage"
         alt="パウダーのイメージ"
@@ -115,10 +115,10 @@
       <div class="title">チーク</div>
       <a-input type="text" 
       v-model="cheeknName" placeholder="商品名を入力" 
-      how-count :maxlength="20" class ="Name"/>
+      how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
       v-model="cheekComment" placeholder="コメント" 
-      how-count :maxlength="200" class="Comment"/>
+      how-count :maxlength="300" class="Comment"/>
      <img
         v-bind:src="cheekImage"
         alt="チークのイメージ"
@@ -138,10 +138,10 @@
       <div class="title">ハイライト</div>
       <a-input type="text" 
       v-model="highlightName" placeholder="商品名を入力" 
-      how-count :maxlength="20" class ="Name"/>
+      how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
       v-model="highlightComment" placeholder="コメント" 
-      how-count :maxlength="200" class="Comment"/>
+      how-count :maxlength="300" class="Comment"/>
      <img
         v-bind:src="highlightImage"
         alt="ハイライトのイメージ"
@@ -162,10 +162,10 @@
       <div class="title">シェーディング</div>
       <a-input type="text" 
       v-model="shadingName" placeholder="商品名を入力" 
-      how-count :maxlength="20" class ="Name"/>
+      how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
       v-model="shadingComment" placeholder="コメント" 
-      how-count :maxlength="200" class="Comment"/>
+      how-count :maxlength="300" class="Comment"/>
       <img
         v-bind:src="shadingImage"
         alt="シェーディングのイメージ"
@@ -189,10 +189,10 @@
       <div class="title">アイシャドウ</div>
       <a-input type="text" 
       v-model="eyeshadowName" placeholder="商品名を入力" 
-      how-count :maxlength="20" class ="Name"/>
+      how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
       v-model="eyeshadowComment" placeholder="コメント" 
-      how-count :maxlength="200" class="Comment"/>
+      how-count :maxlength="300" class="Comment"/>
       <img
         v-bind:src="eyeshadowImage"
         alt="アイシャドウのイメージ"
@@ -213,10 +213,10 @@
       <div class="title">マスカラ</div>
       <a-input type="text" 
       v-model="mascaraName" placeholder="商品名を入力" 
-      how-count :maxlength="20" class ="Name"/>
+      how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
       v-model="mascaraComment" placeholder="コメント" 
-      how-count :maxlength="200" class="Comment"/>
+      how-count :maxlength="300" class="Comment"/>
       <img
         v-bind:src="mascaraImage"
         alt="マスカラのイメージ"
@@ -237,10 +237,10 @@
       <div class="title">アイライン</div>
       <a-input type="text" 
       v-model="eyelineName" placeholder="商品名を入力" 
-      how-count :maxlength="20" class ="Name"/>
+      how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
       v-model="eyelineComment" placeholder="コメント" 
-      how-count :maxlength="200" class="Comment"/>
+      how-count :maxlength="300" class="Comment"/>
       <img
         v-bind:src="eyelineImage"
         alt="アイラインのイメージ"
@@ -261,10 +261,10 @@
       <div class="title">アイブロウ</div>
       <a-input type="text" 
       v-model="eyeblowName" placeholder="商品名を入力" 
-      how-count :maxlength="20" class ="Name"/>
+      how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
       v-model="eyeblowComment" placeholder="コメント" 
-      how-count :maxlength="200" class="Comment"/>
+      how-count :maxlength="300" class="Comment"/>
       <img
         v-bind:src="eyeblowImage"
         alt="アイブロウのイメージ"
@@ -288,10 +288,10 @@
       <div class="title">リップ①</div>
       <a-input type="text" 
       v-model="lip1Name" placeholder="商品名を入力" 
-      how-count :maxlength="20" class ="Name"/>
+      how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
       v-model="lip1Comment" placeholder="コメント" 
-      how-count :maxlength="200" class="Comment"/>
+      how-count :maxlength="300" class="Comment"/>
       <img
         v-bind:src="lip1Image"
         alt="リップ1のイメージ"
@@ -311,12 +311,12 @@
       <div class="title">リップ②</div>
       <a-input type="text" 
       v-model="lip2Name" placeholder="商品名を入力" 
-      how-count :maxlength="20" class ="Name"/>
+      how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
       v-model="lip2Comment" placeholder="コメント" 
-      how-count :maxlength="200" class="Comment"/>
+      how-count :maxlength="300" class="Comment"/>
      <img
-        v-bind:src="fandationImage"
+        v-bind:src="lip2Image"
         alt="リップ2のイメージ"
         width="100"
         height="100"
@@ -475,8 +475,8 @@ export default {
           if (e.target.name === "concealer") {
             this.concealerImage = url
           }
-          if (e.target.name === "facepowder") {
-            this.facepowderImage = url
+          if (e.target.name === "powder") {
+            this.powderImage = url
           }
           if (e.target.name === "cheek") {
             this.cheekImage = url
