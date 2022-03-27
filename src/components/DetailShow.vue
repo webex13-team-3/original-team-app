@@ -43,18 +43,39 @@ export default defineComponent({
           this.images.push(data.shitajiImage)
           this.images.push(data.shitajiImage)
         }
-
-        // this.images.push(data.shadingImage)
-        // this.images.push(data.powderImage)
-        // this.images.push(data.highlightImage)
-        // this.images.push(data.concealerImage)
-        // this.images.push(data.cheekImage)
-        // this.images.push(data.mascaraImage)
-        // this.images.push(data.eyelineImage)
-        // this.images.push(data.eyeShadowImage)
-        // this.images.push(data.eyeblowImage)
-        // this.images.push(data.lipImage)
-        // this.images.push(data.otherImage)
+        if (data.shadingImage) {
+          this.images.push(data.shadingImage)
+        }
+        if (data.shadingImage) {
+          this.images.push(data.powderImage)
+        }
+        if (data.highlightImage) {
+          this.images.push(data.highlightImage)
+        }
+        if (data.concealerImage) {
+          this.images.push(data.concealerImage)
+        }
+        if (data.cheekImage) {
+          this.images.push(data.cheekImage)
+        }
+        if (data.mascaraImage) {
+          this.images.push(data.mascaraImage)
+        }
+        if (data.eyelineImage) {
+          this.images.push(data.eyelineImage)
+        }
+        if (data.eyeShadowImage) {
+          this.images.push(data.eyeShadowImage)
+        }
+        if (data.eyeblowImage) {
+          this.images.push(data.eyeblowImage)
+        }
+        if (data.lipImage) {
+          this.images.push(data.lipImage)
+        }
+        if (data.otherImage) {
+          this.images.push(data.otherImage)
+        }
       })
   },
 })

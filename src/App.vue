@@ -1,15 +1,23 @@
 <template>
   <nav>
-    <router-link to="/" class="header">Home</router-link> |
-    <router-link to="/about" class="header">About</router-link> |
-    <router-link to="/post" class="header">NewPost</router-link>
+    <div>
+      <router-link to="/" class="header">Home</router-link>
+    </div>
+    <div class="nav-right">
+      <router-link to="/makes" class="header">About</router-link> |
+      <router-link to="/post" class="header">NewPost</router-link>
+    </div>
   </nav>
-
   <router-view />
 </template>
 
 <script></script>
 <style>
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "游明朝";
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -17,22 +25,38 @@
   text-align: center;
   color: #2c3e50;
 }
-.header{
+.header {
   padding-left: 3rem;
   padding-right: 3rem;
 }
 nav {
-  padding: 30px;
-  background-color: #F5C8C8;
-  text-align: right;
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+  background-color: rgba(247, 247, 247, 0.479);
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
 }
-
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  font-size: 20px;
+  color: #110300;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #110300;
+}
+.nav-left {
+  width: 20%;
+}
+.nav-right {
+  width: 40%;
+}
+.index {
+  margin-right: 30px;
+}
+.home {
+  width: 20px;
 }
 </style>

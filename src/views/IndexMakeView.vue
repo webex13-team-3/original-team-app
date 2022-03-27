@@ -1,5 +1,5 @@
 <template>
-  <h1>一覧ページ</h1>
+  <h1>一覧</h1>
   <input v-model="serchWord" placeholder="キーワード検索" />
   <button v-on:click="postSerch(serchWord)">検索</button>
   <div class="container">
