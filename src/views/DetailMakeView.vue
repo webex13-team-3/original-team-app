@@ -34,34 +34,37 @@
         <div v-if="base">
           <p>{{ this.make.shitajiName }}</p>
           <p>{{ this.make.shitajiComment }}</p>
-          <p>{{ this.make.concealerName }}</p>
-          <p>{{ this.make.concealerComment }}</p>
-          <p>{{ this.make.shadingName }}</p>
-          <p>{{ this.make.shadingComment }}</p>
-          <p>{{ this.make.highlightName }}</p>
-          <p>{{ this.make.highlightComment }}</p>
-        </div>
-        <div v-if="powder">
           <p>{{ this.make.fandationName }}</p>
           <p>{{ this.make.fandationComment }}</p>
+          <p>{{ this.make.concealerName }}</p>
+          <p>{{ this.make.concealerComment }}</p>
           <p>{{ this.make.powderName }}</p>
           <p>{{ this.make.powderComment }}</p>
+         
+        </div>
+        <div v-if="powder">
+           <p>{{ this.make.highlightName }}</p>
+          <p>{{ this.make.highlightComment }}</p>
           <p>{{ this.make.cheekName }}</p>
           <p>{{ this.make.cheekComment }}</p>
+           <p>{{ this.make.shadingName }}</p>
+          <p>{{ this.make.shadingComment }}</p>
         </div>
         <div v-if="eye">
           <p>{{ this.make.eyelineName }}</p>
           <p>{{ this.make.eyelineComment }}</p>
-          <p>{{ this.make.eyeShadowName }}</p>
-          <p>{{ this.make.eyeShadowComment }}</p>
+          <p>{{ this.make.eyeshadowName }}</p>
+          <p>{{ this.make.eyeshadowComment }}</p>
           <p>{{ this.make.eyeblowName }}</p>
           <p>{{ this.make.eyeblowComment }}</p>
           <p>{{ this.make.mascaraName }}</p>
           <p>{{ this.make.mascaraComment }}</p>
         </div>
         <div v-if="lip">
-          <p>{{ this.make.lipName }}</p>
-          <p>{{ this.make.lipComment }}</p>
+          <p>{{ this.make.lip1Name }}</p>
+          <p>{{ this.make.lip1Comment }}</p>
+          <p>{{ this.make.lip2Name }}</p>
+          <p>{{ this.make.lip2Comment }}</p>
         </div>
         <div v-if="other">
           <p>{{ this.make.otherName }}</p>
@@ -102,7 +105,7 @@ export default {
     hasEyeMakes() {
       return function (make) {
         if (
-          make.eyeShadowName ||
+          make.eyeshadowName ||
           make.mascaraName ||
           make.eyeblowName ||
           make.eyelineName
@@ -117,9 +120,9 @@ export default {
       return function (make) {
         if (
           make.shitajiName ||
+          make.fandationName||
           make.concealerName ||
-          make.shadingName ||
-          make.highlightName
+          make.powderName
         ) {
           return true
         } else {
@@ -129,7 +132,8 @@ export default {
     },
     haspowderMakes() {
       return function (make) {
-        if (make.powderName || make.cheekName || make.fandationName) {
+        if (
+          make.highlightName|| make.cheekName ||make.shadingName  ) {
           return true
         } else {
           return false
@@ -138,7 +142,7 @@ export default {
     },
     haslipMakes() {
       return function (make) {
-        if (make.lipName) {
+        if (make.lip1Name||make.lip2Name) {
           return true
         } else {
           return false
