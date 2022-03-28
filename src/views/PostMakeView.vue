@@ -3,12 +3,17 @@
     新規投稿
   </div>
  
+   <div class="titleName">
+      <a-input type="text" v-model:value="shitajiName" placeholder="このメイクのタイトルは何ですか？"
+       how-count :maxlength="100" id ="titleName"/>
+     
   <div class="bundle">ベース</div>
+   </div>
   <section class="base">
     <div class="shitaji">
     <div class="title">下地</div>
-      <a-input type="text" v-model="shitajiName" placeholder="商品名を入力" how-count :maxlength="100" class ="Name"/>
-      <a-input type="text" v-model="shitajiComment" placeholder="コメント" how-count :maxlength="300" class="Comment"/>
+      <a-input type="text" v-model:value="shitajiName" placeholder="商品名を入力" how-count :maxlength="100" class ="Name"/>
+      <a-input type="text" v-model:value="shitajiComment" placeholder="コメント" how-count :maxlength="300" class="Comment"/>
 
       <!-- 画像だけが選択できるように accept を設定する -->
       <!-- アップロード中は disabled で選択できないようにする -->
@@ -40,10 +45,10 @@
     <div class="fandation">
       <div class="title">ファンデーション</div>
       <a-input type="text" 
-      v-model="fandationName" placeholder="商品名を入力" 
+      v-model:value="fandationName" placeholder="商品名を入力" 
       how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
-      v-model="fandationComment" placeholder="コメント" 
+      v-model:value="fandationComment" placeholder="コメント" 
       how-count :maxlength="300" class="Comment"/>
       <img
         v-bind:src="fandationImage"
@@ -63,10 +68,10 @@
     <div class="concealer">
       <div class="title">コンシーラー</div>
       <a-input type="text" 
-      v-model="concealerName" placeholder="商品名を入力" 
+      v-model:value="concealerName" placeholder="商品名を入力" 
       how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
-      v-model="concealerComment" placeholder="コメント" 
+      v-model:value="concealerComment" placeholder="コメント" 
       how-count :maxlength="300" class="Comment"/>
       <img
         v-bind:src="concealerImage"
@@ -87,10 +92,10 @@
     <div class="powder">
       <div class="title">フェイスパウダー</div>
       <a-input type="text" 
-      v-model="powderName" placeholder="商品名を入力" 
+      v-model:value="powderName" placeholder="商品名を入力" 
       how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
-      v-model="powderComment" placeholder="コメント" 
+      v-model:value="powderComment" placeholder="コメント" 
       how-count :maxlength="300" class="Comment"/>
      <img
         v-bind:src="powderImage"
@@ -114,10 +119,10 @@
     <div class="cheek">
       <div class="title">チーク</div>
       <a-input type="text" 
-      v-model="cheekName" placeholder="商品名を入力" 
+      v-model:value="cheekName" placeholder="商品名を入力" 
       how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
-      v-model="cheekComment" placeholder="コメント" 
+      v-model:value="cheekComment" placeholder="コメント" 
       how-count :maxlength="300" class="Comment"/>
      <img
         v-bind:src="cheekImage"
@@ -137,10 +142,10 @@
     <div class="highlight">
       <div class="title">ハイライト</div>
       <a-input type="text" 
-      v-model="highlightName" placeholder="商品名を入力" 
+      v-model:value="highlightName" placeholder="商品名を入力" 
       how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
-      v-model="highlightComment" placeholder="コメント" 
+      v-model:value="highlightComment" placeholder="コメント" 
       how-count :maxlength="300" class="Comment"/>
      <img
         v-bind:src="highlightImage"
@@ -161,10 +166,10 @@
     <div class="shading">
       <div class="title">シェーディング</div>
       <a-input type="text" 
-      v-model="shadingName" placeholder="商品名を入力" 
+      v-model:value="shadingName" placeholder="商品名を入力" 
       how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
-      v-model="shadingComment" placeholder="コメント" 
+      v-model:value="shadingComment" placeholder="コメント" 
       how-count :maxlength="300" class="Comment"/>
       <img
         v-bind:src="shadingImage"
@@ -188,10 +193,10 @@
     <div class="eyeshadow">
       <div class="title">アイシャドウ</div>
       <a-input type="text" 
-      v-model="eyeshadowName" placeholder="商品名を入力" 
+      v-model:value="eyeshadowName" placeholder="商品名を入力" 
       how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
-      v-model="eyeshadowComment" placeholder="コメント" 
+      v-model:value="eyeshadowComment" placeholder="コメント" 
       how-count :maxlength="300" class="Comment"/>
       <img
         v-bind:src="eyeshadowImage"
@@ -212,10 +217,10 @@
     <div class="mascara">
       <div class="title">マスカラ</div>
       <a-input type="text" 
-      v-model="mascaraName" placeholder="商品名を入力" 
+      v-model:value="mascaraName" placeholder="商品名を入力" 
       how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
-      v-model="mascaraComment" placeholder="コメント" 
+      v-model:value="mascaraComment" placeholder="コメント" 
       how-count :maxlength="300" class="Comment"/>
       <img
         v-bind:src="mascaraImage"
@@ -236,10 +241,10 @@
     <div class="eyeline">
       <div class="title">アイライン</div>
       <a-input type="text" 
-      v-model="eyelineName" placeholder="商品名を入力" 
+      v-model:value="eyelineName" placeholder="商品名を入力" 
       how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
-      v-model="eyelineComment" placeholder="コメント" 
+      v-model:value="eyelineComment" placeholder="コメント" 
       how-count :maxlength="300" class="Comment"/>
       <img
         v-bind:src="eyelineImage"
@@ -260,10 +265,10 @@
     <div class="eyeblow">
       <div class="title">アイブロウ</div>
       <a-input type="text" 
-      v-model="eyeblowName" placeholder="商品名を入力" 
+      v-model:value="eyeblowName" placeholder="商品名を入力" 
       how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
-      v-model="eyeblowComment" placeholder="コメント" 
+      v-model:value="eyeblowComment" placeholder="コメント" 
       how-count :maxlength="300" class="Comment"/>
       <img
         v-bind:src="eyeblowImage"
@@ -287,10 +292,10 @@
     <div class="lip1">
       <div class="title">リップ①</div>
       <a-input type="text" 
-      v-model="lip1Name" placeholder="商品名を入力" 
+      v-model:value="lip1Name" placeholder="商品名を入力" 
       how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
-      v-model="lip1Comment" placeholder="コメント" 
+      v-model:value="lip1Comment" placeholder="コメント" 
       how-count :maxlength="300" class="Comment"/>
       <img
         v-bind:src="lip1Image"
@@ -310,10 +315,10 @@
     <div class="lip2">
       <div class="title">リップ②</div>
       <a-input type="text" 
-      v-model="lip2Name" placeholder="商品名を入力" 
+      v-model:value="lip2Name" placeholder="商品名を入力" 
       how-count :maxlength="100" class ="Name"/>
       <a-input type="text" 
-      v-model="lip2Comment" placeholder="コメント" 
+      v-model:value="lip2Comment" placeholder="コメント" 
       how-count :maxlength="300" class="Comment"/>
      <img
         v-bind:src="lip2Image"
@@ -343,48 +348,48 @@ export default {
   data() {
     return {
        // ベース
-       shitajiName: "下地の名前",
-      shitajiComment: "下地コメント",
-       shitajiImage: "下地イメージ",
-       fandationName: "ファンデーションの名前",
-       fandationComment: "ファンデーションコメント",
-       fandationImage: "ファンデーションイメージ",
-       concealerName: "コンシーラーの名前",
-       concealerComment: "コンシーラーコメント",
-       concealerImage: "コンシーラーイメージ",
-       powderName: "パウダーの名前",
-       powderComment: "パウダーコメント",
-       powderImage: "パウダーイメージ",
+       shitajiName: "",
+      shitajiComment: "",
+       shitajiImage: "",
+       fandationName: "",
+       fandationComment: "",
+       fandationImage: "",
+       concealerName: "",
+       concealerComment: "",
+       concealerImage: "",
+       powderName: "",
+       powderComment: "",
+       powderImage: "",
        // フェイス
-       cheekName: "チークの名前",
-       cheekComment: "チークコメント",
-       cheekImage: "チークイメージ",
-       highlightName: "ハイライトの名前",
-       highlightComment: "ハイライトコメント",
-       highlightImage: "ハイライトイメージ",
-       shadingName: "シェーディングの名前",
-       shadingComment: "シェーディングコメント",
-       shadingImage: "シェーディングイメージ",
+       cheekName: "",
+       cheekComment: "",
+       cheekImage: "",
+       highlightName: "",
+       highlightComment: "",
+       highlightImage: "",
+       shadingName: "",
+       shadingComment: "",
+       shadingImage: "",
        // アイ
-       eyeshadowName: "アイシャドウの名前",
-       eyeshadowComment: "アイシャドウコメント",
-       eyeshadowImage: "アイシャドウイメージ",
-       mascaraName: "マスカラの名前",
-       mascaraComment: "マスカラコメント",
-       mascaraImage: "マスカライメージ",
-       eyelineName: "アイラインの名前",
-       eyelineComment: "アイラインコメント",
-       eyelineImage: "アイラインイメージ",
-       eyeblowName: "アイブロウの名前",
-       eyeblowComment: "アイブロウコメント",
-       eyeblowImage: "アイブロウイメージ",
+       eyeshadowName: "",
+       eyeshadowComment: "",
+       eyeshadowImage: "",
+       mascaraName: "",
+       mascaraComment: "",
+       mascaraImage: "",
+       eyelineName: "",
+       eyelineComment: "",
+       eyelineImage: "",
+       eyeblowName: "",
+       eyeblowComment: "",
+       eyeblowImage: "",
       // リップ
-       lip1Name: "リップ①の名前",
-       lip1Comment: "リップ①コメント",
-       lip1Image: "リップ①イメージ",
-       lip2Name: "リップ②の名前",
-       lip2Comment: "リップ②コメント",
-       lip2Image: "リップ①イメージ",
+       lip1Name: "",
+       lip1Comment: "",
+       lip1Image: "",
+       lip2Name: "",
+       lip2Comment: "",
+       lip2Image: "",
     }
   },
   
@@ -526,11 +531,19 @@ section{
   border-radius: 50px;
   background-color:#ECECEC ;
 }
+#titleName{
+  width: 400px;
+  height:38px
+
+}
 .bundle{
   font-size: 20px;
+  margin-top:3rem;
   font-weight: bold;
 }
 .title{
+  padding: 1rem;
+  font-weight: bold;
   font-size: 15px;
 }
 .Name{
@@ -546,7 +559,10 @@ section{
   margin-right:8px;
 }
 .form__submit-button{
-  margin-top: 5px;
+
+    width: 280px;
+    height: 82px;
+  margin: 5rem;
   font-size:20px
 }
 </style>
