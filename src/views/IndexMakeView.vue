@@ -1,21 +1,37 @@
 <template>
-  <h1>一覧</h1>
-  <input v-model="serchWord" placeholder="キーワード検索" />
-  <button v-on:click="postSerch(serchWord)">検索</button>
-  <div class="container">
-    <div v-for="make in makes" :key="make.id" class="container-box">
-      <p v-if="make.shitajiImage">
-        <img v-bind:src="make.shitajiImage" alt="下地のイメージ" width="200" />
-      </p>
-      <div class="tag-box">
-        <ListTag :name="hasBaseMakes(make)" tagName=" ベースメイク" />
-        <ListTag :name="haspowderMakes(make)" tagName="パウダー" />
-        <ListTag :name="hasEyeMakes(make)" tagName="アイメイク" />
-        <ListTag :name="haslipMakes(make)" tagName="リップ" />
-        <ListTag :name="hasotherMakes(make)" tagName="その他" />
-      </div>
+  <div class="indexbox">
+    <h1>Makes List</h1>
+    <div class="serch">
+      <a-input-search
+        v-model:value="value"
+        placeholder="input search text"
+        enter-button
+        @search="onSearch"
+        class="a"
+      />
+    </div>
+    <div class="container">
+      <div v-for="make in makes" :key="make.id" class="container-box">
+        <p v-if="make.shitajiImage">
+          <img
+            v-bind:src="make.shitajiImage"
+            alt="下地のイメージ"
+            width="250"
+            class="img"
+          />
+        </p>
+        <div class="tag-box">
+          <ListTag :name="hasBaseMakes(make)" tagName=" ベースメイク" />
+          <ListTag :name="haspowderMakes(make)" tagName="パウダー" />
+          <ListTag :name="hasEyeMakes(make)" tagName="アイメイク" />
+          <ListTag :name="haslipMakes(make)" tagName="リップ" />
+          <ListTag :name="hasotherMakes(make)" tagName="その他" />
+        </div>
 
-      <router-link :to="'/makes/' + make.id">もっとみる</router-link>
+        <router-link :to="'/makes/' + make.id" class="detail"
+          >More →</router-link
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -28,8 +44,7 @@ import ListTag from "../components/ListTag.vue"
 export default {
   data() {
     return {
-      makes: [{}],
-      serchWord: "",
+      makes: [],
     }
   },
   computed: {
@@ -110,29 +125,66 @@ export default {
 </script>
 
 <style scoped>
+.detail {
+  color: #110300;
+  font-weight: bold;
+  font-size: 16px;
+}
+.a {
+  width: 500px;
+}
+.img {
+  border: solid;
+  border-color: #ffffff;
+}
+.detail:hover {
+  color: rgb(156, 26, 65);
+  padding-left: 1em;
+  transition: 0.5s all;
+}
+h1 {
+  width: 300px;
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
+}
+.serch {
+  margin: 20px;
+}
+.indexbox {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+}
 .container {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
+  justify-content: center;
   text-align: center;
 }
 .container-box {
-  width: 30%;
+  width: 20%;
   margin: 20px;
+  padding: 20px;
+  background-color: #bf8e8a49;
+  height: auto;
 }
 .tag-box {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-left: 35px;
+  margin-bottom: 15px;
+  margin-left: 8%;
+  font-size: 15px;
 }
 .tag-name {
-  border: 3px solid;
-  border-color: #eeb4a8;
-  width: 25%;
+  width: 40%;
+  font-size: 14px;
   margin: 3px;
-  padding: 4px;
-  border-radius: 10%;
+  padding: 5px;
+  border-radius: 20px;
+  background-color: white;
+  color: rgb(41, 30, 36);
 }
 </style>
