@@ -34,6 +34,17 @@ export default {
   color: white;
   text-shadow: 1px 2px 3px #494949;
   font-family: "游明朝";
+  animation: fadeIn 2s ease 0.3s 1 normal;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .link {
   position: absolute;
@@ -45,6 +56,7 @@ export default {
   border-radius: 15px;
   font-weight: bold;
   color: #7e7878;
+  animation: fadeIn 3s ease 0.3s 1 normal;
 }
 .link:hover {
   color: #130f0f;
