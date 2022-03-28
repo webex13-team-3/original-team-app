@@ -4,7 +4,7 @@
       <router-link to="/" class="header">Home</router-link>
     </div>
     <div class="nav-right">
-      <router-link to="/makes" class="header">About</router-link> |
+      <router-link to="/makes" class="header">Makes List</router-link> |
       <router-link to="/post" class="header">NewPost</router-link>
     </div>
   </nav>
@@ -42,6 +42,11 @@ nav a {
   font-weight: bold;
   font-size: 20px;
   color: #110300;
+}
+nav a:hover {
+  font-weight: bold;
+  font-size: 20px;
+  color: #a73939;
 }
 
 nav a.router-link-exact-active {
