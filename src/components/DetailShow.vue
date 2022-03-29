@@ -41,7 +41,9 @@ export default defineComponent({
         this.make = data
         if (data.shitajiImage) {
           this.images.push(data.shitajiImage)
-          this.images.push(data.shitajiImage)
+        }
+        if (data.shitajiImage) {
+          this.images.push(data.fandationImage)
         }
         if (data.shadingImage) {
           this.images.push(data.shadingImage)
@@ -70,8 +72,11 @@ export default defineComponent({
         if (data.eyeblowImage) {
           this.images.push(data.eyeblowImage)
         }
-        if (data.lipImage) {
-          this.images.push(data.lipImage)
+        if (data.lip1Image) {
+          this.images.push(data.lip1Image)
+        }
+        if (data.lip2Image) {
+          this.images.push(data.lip2Image)
         }
         if (data.otherImage) {
           this.images.push(data.otherImage)
